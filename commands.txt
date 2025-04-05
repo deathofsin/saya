@@ -1,1 +1,2 @@
 .help - View all Commands
+.scraper <group> - Create a file with all the users of the chosen group 
