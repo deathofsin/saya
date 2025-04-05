@@ -1,2 +1,3 @@
 .help - View all Commands
+.ping - See if the bot is online
 .scraper <group> - Create a file with all the users of the chosen group 
