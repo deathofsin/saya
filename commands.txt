@@ -2,3 +2,4 @@
 .ping - See if the bot is online
 .afk <active or disable> - make your profile appear to all users in afk mode
 .scraper <group> - Create a file with all the users of the chosen group 
+.purge - delete all messages
