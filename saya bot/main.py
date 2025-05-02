@@ -7,12 +7,15 @@ from modules.afk import *
 from modules.purge import *
 from modules.uwufy import *
 from modules.globalBan import *
-
+from modules.wife import *
 client = TelegramClient(session="Saya",
     api_id=config.API_ID,
     api_hash=config.API_HASH)
 
 
+register_addwife(client)
+register_showwifes(client)
+register_removewife(client)
 register_help(client)
 register_ping(client)
 register_afk(client)
