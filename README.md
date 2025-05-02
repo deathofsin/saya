@@ -13,6 +13,9 @@ https://github.com/deathofsin/saya/blob/main/commands.txt
 - `.purge` - delete all messages
 - `.scraper <group>` - Create a file with all the users of the chosen group
 - `.help` - view all commands
+- `.addwife <@user>` - add wife in the database
+- `.showwifes` - view wives list
+- `.removewife` - remove wife from database
 ## Features
 
 - 🔨 Global ban system (`.gban`)
