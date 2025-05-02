@@ -5,3 +5,6 @@
 .purge - delete all messages
 .gban <@user> – Bans the specified user from all groups where you're an admin
 .uwu <text> - kawaii text
+.addwife <@user> - add wife in the database
+.showwifes - view wives list
+.removewife - remove wife from database
