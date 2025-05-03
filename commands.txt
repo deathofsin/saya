@@ -8,3 +8,14 @@
 .addwife <@user> - add wife in the database
 .showwifes - view wives list
 .delwife - remove wife from database
+.addadmin - add an admin on the userbot
+.deladmin - remove an admin on the userbot
+.showadmins - view all admins
+
+COMMANDS FOR ADMINS
+⏝̅⏝̅⏝̅ ୨ ♱ ୧ ⏝̅⏝̅⏝
+.help - view all commands
+.showadmins - view all admins
+.showwifes - view all wifes
+.uwu <text> - kawaii text
+.gban <@user> – Bans the specified user from all groups where you're an admin
