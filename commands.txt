@@ -8,8 +8,8 @@
 .addwife <@user> - add wife in the database
 .showwifes - view wives list
 .delwife - remove wife from database
-.addadmin - add an admin on the userbot
-.deladmin - remove an admin on the userbot
+.addadmin <@user> - add an admin on the userbot
+.deladmin <@user> - remove an admin on the userbot
 .showadmins - view all admins
 
 COMMANDS FOR ADMINS
