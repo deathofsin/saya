@@ -15,7 +15,7 @@ https://github.com/deathofsin/saya/blob/main/commands.txt
 - `.help` - view all commands
 - `.addwife <@user>` - add wife in the database
 - `.showwifes` - view wives list
-- `.removewife` - remove wife from database
+- `.delwife` - remove wife from database
 ## Features
 
 - 🔨 Global ban system (`.gban`)
