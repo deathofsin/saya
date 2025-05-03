@@ -46,6 +46,7 @@ async def remove_admin(client, event, username):
         conn = sqlite3.connect("database/admin.db")
         cur = conn.cursor()
         cur.execute("DELETE FROM admins WHERE id = ?", (user_id,))
+        conn.commit()
         path = "https://i.pinimg.com/originals/f3/43/61/f34361e6d646971ce7490244ab96c7b6.gif"
         await client.send_file(event.chat_id, path, caption=f"@{user_username} has been removed as admin.")
     except Exception as e:
