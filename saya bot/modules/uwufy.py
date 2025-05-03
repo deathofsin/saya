@@ -40,7 +40,7 @@ async def uwu(client, event):
 
 
 def register_uwuify(client):
-    @client.on(events.NewMessage(pattern='^\.uwu', outgoing=True))
+    @client.on(events.NewMessage(pattern='^\.uwu'))
     async def uwuify_handler(event):
         if is_admin(event.sender_id):
             await uwu(client, event)
