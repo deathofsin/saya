@@ -1,7 +1,7 @@
 import random
 from telethon import *
 from utils.functions import *
-
+from utils.admin import is_admin
 
 def uwuify(text):
     try:
@@ -42,4 +42,5 @@ async def uwu(client, event):
 def register_uwuify(client):
     @client.on(events.NewMessage(pattern='^\.uwu', outgoing=True))
     async def uwuify_handler(event):
-        await uwu(client, event)
+        if is_admin(event.sender_id):
+            await uwu(client, event)

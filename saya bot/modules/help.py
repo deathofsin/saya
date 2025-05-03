@@ -1,6 +1,6 @@
 from telethon import *
 from utils.functions import delete_message
-
+from utils.admin import is_admin
 async def help(client, event):
     try:
         await delete_message(client, event)
@@ -26,6 +26,7 @@ async def help(client, event):
 
 
 def register_help(client):
-    @client.on(events.NewMessage(pattern='^\.help', outgoing=True))
+    @client.on(events.NewMessage(pattern='^\.help'))
     async def help_handler(event):
-        await help(client,event)
+        if is_admin(event.sender_id):
+            await help(client,event)

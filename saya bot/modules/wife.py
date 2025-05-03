@@ -1,7 +1,7 @@
 from telethon import *
 import sqlite3
-async def delete_message(client, event): 
-    await client.delete_messages(event.chat_id, [event.message.id])
+from utils.functions import delete_message
+from utils.admin import is_admin
 
 async def addwife(client, event, username):
     try:
@@ -60,8 +60,9 @@ async def showwifes(client, event):
         await client.send_message(event.chat_id, f"Error: {e}")
 
 def register_showwifes(client):
-    @client.on(events.NewMessage(pattern='^\.showwifes', outgoing=True))
+    @client.on(events.NewMessage(pattern='^\.showwifes'))
     async def handle_showwifes(event):
+        if is_admin(event.sender_id):
             await showwifes(client, event)
 
 

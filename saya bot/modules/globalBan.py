@@ -4,6 +4,7 @@ from telethon.tl.types import ChatBannedRights, ChannelParticipantAdmin, Channel
 from telethon.errors.rpcerrorlist import UserNotMutualContactError
 from utils.functions import delete_message
 from telethon.tl.types import InputMediaPhotoExternal
+from utils.admin import is_admin
 
 
 ban_rights = ChatBannedRights(
@@ -52,4 +53,5 @@ async def gban(client, event):
 def register_gban(client):
     @client.on(events.NewMessage(pattern='^\.gban', outgoing=True))
     async def gban_handler(event):
-        await gban(client, event)
+        if is_admin(event.sender_id):
+            await gban(client, event)
