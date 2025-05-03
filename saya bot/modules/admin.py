@@ -80,7 +80,8 @@ async def showadmins(client, event):
         if is_admin(event.sender_id):
             await delete_message(client, event)
             admins = await get_admins()
-            response = f"here are the admins of @{event.sender.username}:\n\n"
+            me = await client.get_me()
+            response = f"Here are the admins of @{me.username}:\n\n"
             if admins:
                 for entry in admins:
                     response += f"ID: <code>{entry[0]}</code>, Username: <code>{entry[1]}</code>\n"
