@@ -6,6 +6,7 @@ from utils.admin import is_admin
 async def addwife(client, event, username):
     try:
         await delete_message(client, event)
+        me = await client.get_me()
         user_entity = await client.get_input_entity(username) 
         user_id = user_entity.user_id
         conn = sqlite3.connect('database/wifes.db')
@@ -13,7 +14,7 @@ async def addwife(client, event, username):
         cur.execute("CREATE TABLE IF NOT EXISTS wifes (id INTEGER PRIMARY KEY, username TEXT)")
         cur.execute("INSERT INTO wifes (id, username) VALUES (?, ?)",(user_id, username))
         path = "https://i.imgur.com/cd06qM9.gif"
-        await client.send_file(event.chat_id, path, caption=f"""the user: {username} she became the wife of @{event.sender.username}.""")
+        await client.send_file(event.chat_id, path, caption=f"""the user: {username} she became the wife of @{me.username}.""")
         conn.commit()
         conn.close()
     except Exception as a:
@@ -48,7 +49,8 @@ async def showwifes(client, event):
     try:
             await delete_message(client, event)
             wifes = await get_wifes()
-            response = f"Here are the wives of @{event.sender.username}:\n\n"
+            me = await client.get_me()
+            response = f"Here are the wives of @{me.username}:\n\n"
             if wifes:
                 for entry in wifes:
                     response += f"ID: <code>{entry[0]}</code>, Username: <code>{entry[1]}</code>\n"
@@ -70,13 +72,14 @@ def register_showwifes(client):
 async def removewife(client, event, username):
     try:
         await delete_message(client, event)
+        me = await client.get_me()
         user_entity = await client.get_input_entity(username)
         user_id = user_entity.user_id
         conn = sqlite3.connect('database/wifes.db')
         cur = conn.cursor()
         cur.execute("DELETE FROM wifes WHERE id = ?", (user_id,))
         path = "https://i.imgur.com/cd06qM9.gif"
-        await client.send_file(event.chat_id, path, caption=f"""the user: {username} she is no longer the wife of @{event.sender.username}.""")
+        await client.send_file(event.chat_id, path, caption=f"""the user: {username} she is no longer the wife of @{me.username}.""")
         conn.commit()
         conn.close()
     except Exception as e:
