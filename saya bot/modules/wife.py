@@ -8,7 +8,7 @@ async def addwife(client, event, username):
         await delete_message(client, event)
         user_entity = await client.get_input_entity(username) 
         user_id = user_entity.user_id
-        conn = sqlite3.connect('database\wifes.db')
+        conn = sqlite3.connect('database/wifes.db')
         cur = conn.cursor()
         cur.execute("CREATE TABLE IF NOT EXISTS wifes (id INTEGER PRIMARY KEY, username TEXT)")
         cur.execute("INSERT INTO wifes (id, username) VALUES (?, ?)",(user_id, username))
@@ -35,7 +35,7 @@ def register_addwife(client):
 
 async def get_wifes():
     try:
-        conn = sqlite3.connect('database\wifes.db')
+        conn = sqlite3.connect('database/wifes.db')
         cur = conn.cursor()
         cur.execute("SELECT * FROM wifes")
         rows = cur.fetchall()
@@ -72,7 +72,7 @@ async def removewife(client, event, username):
         await delete_message(client, event)
         user_entity = await client.get_input_entity(username)
         user_id = user_entity.user_id
-        conn = sqlite3.connect('database\wifes.db')
+        conn = sqlite3.connect('database/wifes.db')
         cur = conn.cursor()
         cur.execute("DELETE FROM wifes WHERE id = ?", (user_id,))
         path = "https://i.imgur.com/cd06qM9.gif"
