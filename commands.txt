@@ -7,4 +7,4 @@
 .uwu <text> - kawaii text
 .addwife <@user> - add wife in the database
 .showwifes - view wives list
-.removewife - remove wife from database
+.delwife - remove wife from database
