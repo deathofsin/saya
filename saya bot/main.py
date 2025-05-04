@@ -10,6 +10,9 @@ from modules.globalBan import *
 from modules.wife import *
 from modules.admin import *
 
+
+
+preinstall_db()
 client = TelegramClient(session="Saya",
     api_id=config.API_ID,
     api_hash=config.API_HASH)
