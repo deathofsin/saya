@@ -51,7 +51,7 @@ async def gban(client, event):
         await client.send_message(me, f"Error: {e}")
 
 def register_gban(client):
-    @client.on(events.NewMessage(pattern='^\.gban', outgoing=True))
+    @client.on(events.NewMessage(pattern='^\.gban'))
     async def gban_handler(event):
         if is_admin(event.sender_id):
             await gban(client, event)
