@@ -3,6 +3,13 @@ import sqlite3
 from utils.admin import is_admin
 
 
+def preinstall_db():
+    conn = sqlite3.connect("database/admin.db")
+    cur = conn.cursor()
+    cur.execute("CREATE TABLE IF NOT EXISTS admins (id INTEGER PRIMARY KEY, username TEXT)")
+    conn.commit()
+    conn.close()
+
 async def delete_message(client, event):
     await client.delete_messages(event.chat_id, [event.message.id])
 
@@ -98,4 +105,3 @@ def register_showadmins(client):
     async def handle_showadmins(event):
         if is_admin(event.sender_id):
             await showadmins(client, event)
-
